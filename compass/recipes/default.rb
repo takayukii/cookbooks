@@ -9,12 +9,13 @@
 
 %w[sass compass].each do |pkg|
   gem_package pkg do
-      action :install
+    action :install
   end
 end
 
-link '/usr/bin/compass' do
-  to '/usr/local/bin/compass'
+['/usr/local/bin/compass', '/opt/chef/embedded/bin/compass'].each do |compass_path|
+  link '/usr/bin/compass' do
+    only_if { File.exist?(compass_path) }
+    to compass_path
+  end  
 end
-
-
