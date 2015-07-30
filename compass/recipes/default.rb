@@ -13,8 +13,8 @@
   end
 end
 
-link '/usr/local/bin/compass' do
-  to '/usr/bin/compass'
+link '/usr/bin/compass' do
+  to '/usr/local/bin/compass'
 end
 
 
