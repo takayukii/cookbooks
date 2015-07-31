@@ -19,9 +19,9 @@ package 'nginx' do
 	action :install
 end
 
-template 'nginx.conf' do
-  path '/etc/nginx/nginx.conf'
-  source 'nginx.conf.erb'
+template 'nodeproxy.conf' do
+  path '/etc/nginx/conf.d/nodeproxy.conf'
+  source 'nodeproxy.conf.erb'
   owner 'root'
   group 'root'
   mode 0644
