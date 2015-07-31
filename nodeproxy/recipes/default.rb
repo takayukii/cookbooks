@@ -7,12 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
-template '/etc/yum.repos.d/nginx.repo' do
+template 'nginx.repo' do
+  path '/etc/yum.repos.d/nginx.repo'
+  source 'nginx.repo.erb'
   mode 0644
   user 'root'
   group 'root'
-  path '/etc/yum.repos.d/nginx.repo'
-  source 'nginx.repo.erb'
 end
 
 package 'nginx' do
@@ -27,7 +27,6 @@ template 'nginx.conf' do
   mode 0644
   notifies :reload, 'service[nginx]'
 end
-
 
 service 'nginx' do
 	supports :status => true, :restart => true, :reload => true
