@@ -22,6 +22,10 @@ package 'nginx' do
   options '--disablerepo=* --enablerepo=nginx'
 end
 
+file '/etc/nginx/conf.d/default.conf' do
+  action :delete
+end
+
 template 'nginx.conf' do
   path '/etc/nginx/nginx.conf'
   source 'nginx.conf.erb'
