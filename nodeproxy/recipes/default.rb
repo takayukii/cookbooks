@@ -19,6 +19,7 @@ end
 # nginx 0:off 1:off 2:on  3:on  4:on  5:on  6:off
 package 'nginx' do
 	action :install
+  options '--disablerepo=* --enablerepo=nginx'
 end
 
 template 'nginx.conf' do
