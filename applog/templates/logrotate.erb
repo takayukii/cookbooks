@@ -1,0 +1,12 @@
+/var/log/<%= @app_name %>/*log {
+
+  create 0777 root root
+  daily
+  rotate 100
+  size 0
+  missingok
+  notifempty
+  copytruncate
+  dateext
+  
+}
