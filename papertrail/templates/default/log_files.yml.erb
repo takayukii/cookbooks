@@ -1,0 +1,9 @@
+files:
+<% node["papertrail"]["files"].each do |file| %>
+  - <%= file %>
+<% end %>
+hostname: <%= node["papertrail"]["hostname"] %>
+destination:
+  host: <%= node["papertrail"]["papertrail_host"] %>
+  port: <%= node["papertrail"]["papertrail_port"] %>
+  protocol: tls

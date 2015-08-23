@@ -37,11 +37,6 @@ template "nodeproxy.conf" do
   group "root"
   mode 0644
   notifies :reload, "service[nginx]"
-  variables({
-    :http_port => node["nodeproxy"]["http_port"],
-    :https_port => node["nodeproxy"]["https_port"],
-    :wss_port => node["nodeproxy"]["wss_port"]
-  })
 end
 
 service "nginx" do
