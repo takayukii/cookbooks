@@ -1,4 +1,4 @@
-nodeproxy Cookbook
+nodeproxy cookbook
 ==============
 SPA+WebSocket通信を行うNode.jsのためのプロキシサーバー。本レシピでは下記のようにnginxを構成し、ELB経由でのHTTPS通信の強制とWebSocketの通信を実現する。このサーバー構成はELBのリスナー設定と密に関わるものであるため合わせて設定する事。なお、SPAを想定しているためJSファイルおよびCSSファイルのgzip圧縮についても設定している。
 
@@ -23,6 +23,7 @@ SPA+WebSocket通信を行うNode.jsのためのプロキシサーバー。本レ
 
 Requirements
 ------------
+
 OpsWorksの下記の環境下で動作確認済
 
 ```
@@ -35,8 +36,6 @@ Attributes
 
 Attributesでは構成するサーバーのポート番号を指定できる。
 
-e.g.
-#### nodeproxy::default
 <table>
   <tr>
     <th>キー</th>
@@ -67,7 +66,9 @@ e.g.
 Usage
 -----
 
-#### nodeproxy::default
+```
+nodeproxy::default
+```
 
 OpsWorksのCustom JSONでは必要に応じて下記のように指定する（StackのSettingsより設定可能）
 

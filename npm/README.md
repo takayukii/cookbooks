@@ -4,6 +4,7 @@ npm Cookbook
 
 Requirements
 ------------
+
 OpsWorksの下記の環境下で動作確認済
 
 ```
@@ -19,7 +20,9 @@ Attributes
 Usage
 -----
 
-#### npm::update
+```
+npm::update
+```
 
 Notice
 -----

@@ -1,9 +1,10 @@
-compass Cookbook
+compass cookbook
 ================
 SassおよびCompassを導入する。
 
 Requirements
 ------------
+
 OpsWorksの下記の環境下で動作確認済
 
 ```
@@ -19,4 +20,6 @@ Attributes
 Usage
 -----
 
-#### compass::default
+```
+compass::default
+```
