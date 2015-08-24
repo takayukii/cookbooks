@@ -29,9 +29,9 @@ template "nginx.conf" do
   notifies :reload, "service[nginx]"
 end
 
-template "nodeproxy.conf" do
-  path "/etc/nginx/conf.d/nodeproxy.conf"
-  source "nodeproxy.conf.erb"
+template "node_proxy.conf" do
+  path "/etc/nginx/conf.d/node_proxy.conf"
+  source "node_proxy.conf.erb"
   action :create
   owner "root"
   group "root"
@@ -39,7 +39,11 @@ template "nodeproxy.conf" do
   notifies :reload, "service[nginx]"
 end
 
+phpmyadmin_name_is_specified = node["nginx"]["node_proxy"]["phpmyadmin_name"] != ""
+include_recipe "phpmyadmin::nginx" if phpmyadmin_name_is_specified
+
 service "nginx" do
 	supports :status => true, :restart => true, :reload => true
 	action [ :enable, :start]
 end
+

@@ -1,8 +1,6 @@
-amzn-linux cookbook
+amznlinux cookbook
 ==============
-Amazon Linuxの初期設定を行う。
-
-* 時刻を日本時間に設定する
+Amazon Linuxの設定を行う。
 
 Requirements
 ------------
@@ -22,6 +20,8 @@ Attributes
 Usage
 -----
 
-```
-amzn-linux::default
-```
+#### amznlinux::default
+
+下記の設定を行う。
+
+* 時刻を日本時間に設定する

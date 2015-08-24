@@ -1,6 +1,7 @@
 papertrail cookbook
 ==============
 papertrailでログを転送するremote_syslogを導入する。過去に利用した事があるElastic Beanstalk用のスクリプトを参考に作成した。
+
 https://gist.github.com/leonsodhi/8eb28e06b2c35c136bf8#file-01papertrail-config
 
 Requirements
@@ -52,11 +53,7 @@ Attributes
 Usage
 -----
 
-```
-papertrail::default
-```
-
-OpsWorksのCustom JSONでは必要に応じて下記のように指定する（StackのSettingsより設定可能）
+#### papertrail::default
 
 ```json
 {

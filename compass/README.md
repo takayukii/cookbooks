@@ -20,6 +20,5 @@ Attributes
 Usage
 -----
 
-```
-compass::default
-```
+#### compass::default
+
