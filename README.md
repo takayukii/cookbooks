@@ -7,6 +7,9 @@ takayukii's OpsWorks Cookbooks
 * Layer内のEC2インスタンスの調整（24/7のマニュアルでの伸縮、stopped状態でのインスタンスの保持、Time/Load-based）
 * Custom JSONを利用したRecipeの再利用性
 * Recipeの各ライフサイクルイベントを通した実行、任意のRecipe実行によるインスタンスのメンテナンス性
+* Knife SoloとVagrant(+ sahara plugin)を利用したローカルでの開発（Elastic Beanstalkの.ebextensionsはローカルで開発できない）
+
+今後Chefの知見を貯めつつRecipeを再利用しながら生産性を向上させたい。
 
 OpsWorksでのcookbookの利用
 ----------
@@ -19,13 +22,15 @@ __例__
 
 ```
 {
-  "applog": {
-    "app_name": "onecoindog"
+  "applogs": {
+    "paths": ["/var/log/onecoindog"]
   },
-  "nodeproxy": {
-    "http_port": 8080,
-    "https_port": 44380,
-    "wss_port": 3000
+  "nginx": {
+    "node_proxy": {
+      "http_port": 8080,
+      "https_port": 44380,
+      "wss_port": 3000
+    }
   }
 }
 ```
@@ -44,8 +49,8 @@ __例__
 
 ```
 {
-  "applog": {
-    "app_name": "onecoindog"
+  "applogs": {
+    "paths": ["/var/log/onecoindog"]
   }
 }
 ```
@@ -71,10 +76,10 @@ __nodesファイルの例__
 ```
 {
   "applogs": {
-    "app_name": "hoge"
+    "paths": ["/var/log/hoge"]
   },
   "run_list": [
-    "recipe[applog, nodeproxy]"
+    "recipe[applogs]", "recipe[nginx]"
   ],
   "automatic": {
     "ipaddress": "192.168.33.40"

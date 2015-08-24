@@ -1,1 +1,2 @@
+name "nginx"
 depends "phpmyadmin"

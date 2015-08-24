@@ -1,4 +1,4 @@
-%w[php php-fpm phpmyadmin].each do |pkg|
+%w[php php-fpm phpMyAdmin].each do |pkg|
   package pkg do
     action :install
   end
@@ -27,9 +27,21 @@ template "config.inc.php" do
   path "/etc/phpMyAdmin/config.inc.php"
   source "config.inc.php.erb"
   action :create
-  owner "root"
-  group "root"
-  mode 0644
+  owner "nginx"
+  group "nginx"
+  mode 0660
+end
+
+directory "/etc/phpMyAdmin" do
+  owner "nginx"
+  group "nginx"
+  mode "0755"
+  action :create
+end
+
+directory "/var/lib/php/session" do
+  mode "0777"
+  action :create
 end
 
 service "php-fpm" do
