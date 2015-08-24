@@ -37,8 +37,6 @@ Usage
 
 #### phpmyadmin::nginx
 
-OpsWorksのCustom JSONでは必要に応じて下記のように指定する（StackのSettingsより設定可能）
-
 ```json
 {
   "phpmyadmin": {

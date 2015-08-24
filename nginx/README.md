@@ -51,12 +51,14 @@ Attributes
   </tr>
 </table>
 
+phpmyadmin_nameを指定すると[phpmyadmin](../phpmyadmin)のphpmyadmin::nginxがinclude_recipeで実行される
+
 Usage
 -----
 
 #### nginx::node_proxy
 
-Node.jsへのプロキシを行うためにnginxを導入する。本レシピでは下記を設定する。
+本レシピでは下記を設定する。
 
 * HTTPS強制
 * WSSの転送
@@ -84,8 +86,6 @@ Node.jsへのプロキシを行うためにnginxを導入する。本レシピ�
   </tr>
 </table>
 
-phpmyadmin_nameを指定するとphpmyadmin::nginxも合わせて実行される
-
 ```json
 {
   "nodeproxy": {
@@ -100,4 +100,3 @@ phpmyadmin_nameを指定するとphpmyadmin::nginxも合わせて実行される
 }
 ```
 
-注）phpMyAdminはパスがそのままだと攻撃されやすいため避ける事。
