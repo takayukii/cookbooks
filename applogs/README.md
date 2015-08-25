@@ -46,7 +46,7 @@ Usage
 ```json
 {
   "applogs": {
-    "paths": ["onecoindog"]
+    "paths": ["/var/log/onecoindog"]
   }
 }
 ```
