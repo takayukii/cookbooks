@@ -12,6 +12,15 @@ end
   end
 end
 
+template "timezon.ini" do
+  path "/etc/php.d/timezone.ini"
+  source "timezone.ini.erb"
+  action :create
+  owner "root"
+  group "root"
+  mode 0644
+  notifies :restart, "service[httpd]"
+end
 
 mysql_database = node["lamp"][:mysql][:database]
 mysql_user = node["lamp"][:mysql][:user]
@@ -32,10 +41,10 @@ execute "prepare database" do
   not_if "mysql -u root -e 'show databases;' | grep #{mysql_database}"
 end
 
-grant_statement = "GRANT ALL PRIVILEGES ON *.* TO '#{mysql_user}'@'localhost' IDENTIFIED BY '#{mysql_password}' WITH GRANT OPTION;"
-sql_statement = "SELECT User FROM mysql.user WHERE User = '#{mysql_user}';"
+grant_statement = "GRANT ALL PRIVILEGES ON *.* TO '#{mysql_user}'@'%' IDENTIFIED BY '#{mysql_password}' WITH GRANT OPTION;"
+grant_statement += "GRANT ALL PRIVILEGES ON *.* TO '#{mysql_user}'@'localhost' IDENTIFIED BY '#{mysql_password}' WITH GRANT OPTION;"
 
-p "mysql -u root -e \"#{sql_statement}\""
+sql_statement = "SELECT User FROM mysql.user WHERE User = '#{mysql_user}';"
 
 execute "prepare user" do
   command "mysql -u root -e \"#{grant_statement}\""
