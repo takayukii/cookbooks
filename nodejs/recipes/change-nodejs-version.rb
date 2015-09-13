@@ -19,15 +19,22 @@ directory '/nvm/alias' do
   action :create
 end
 
+target = ""
+case node[:platform]
+when "centos", "redhat"
+  target = "nvm"
+when "amazon"
+  target = "/nvm/versions/node"
+end
+
 bash "install nodejs" do
   code <<-EOC
     source /nvm/nvm.sh
     nvm install #{node['nodejs']['version']}
   EOC
-  creates "/nvm/#{node['nodejs']['version']}"
-  not_if {File.exists?("/nvm/v#{node['nodejs']['version']}")}
+  not_if {File.exists?("#{target}/v#{node['nodejs']['version']}")}
 end
 
 link "/usr/local/bin/node" do
-  to "/nvm/v#{node['nodejs']['version']}/bin/node"
+  to "#{target}/v#{node['nodejs']['version']}/bin/node"
 end
