@@ -22,7 +22,7 @@ end
 target = ""
 case node[:platform]
 when "centos", "redhat"
-  target = "nvm"
+  target = "/nvm"
 when "amazon"
   target = "/nvm/versions/node"
 end
