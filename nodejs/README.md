@@ -19,8 +19,20 @@ Attributes
 Usage
 -----
 
-#### npm::update
+#### nodejs::upgrade-npm
 
 1.x系だとnpm install時のエラーが多発するためnpmを2.x系にアップグレードする。
 
 なお、OpsWorksの不具合のため現状初回インスタンス起動後の任意の手動デプロイではバージョンがうまく上がらずデプロイに失敗する。そのため常にインスタンス起動でデプロイする必要がある。AWSサポートによると将来的に修正予定との事（時期未定）。
+
+#### nodejs::change-nodejs-version
+
+Nodeのバージョンを変更する。
+
+```
+{
+  "nodejs": {
+    "version": "0.10.38"
+  }
+}
+```
