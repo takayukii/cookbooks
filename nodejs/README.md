@@ -32,7 +32,9 @@ Attributes
 Usage
 -----
 
-#### nodejs::upgrade-npm
+#### nodejs::change-npm-version
+
+NPMのバージョンを変更する。
 
 ```
 {
