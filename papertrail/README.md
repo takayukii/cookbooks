@@ -25,6 +25,12 @@ Attributes
     <th>初期値</th>
   </tr>
   <tr>
+    <td><tt>["papertrail"]["remote_uri"]</tt></td>
+    <td>文字列</td>
+    <td>papertrailのバイナリ</td>
+    <td><tt>GitHubのバイナリのURI</tt></td>
+  </tr>
+  <tr>
     <td><tt>["papertrail"]["files"]</tt></td>
     <td>配列</td>
     <td>転送するログファイルのパス</td>

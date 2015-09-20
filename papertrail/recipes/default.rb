@@ -1,8 +1,9 @@
 filename = "remote_syslog_linux_amd64.tar.gz"
-remote_uri = "https://github.com/papertrail/remote_syslog2/releases/download/v0.13/remote_syslog_linux_amd64.tar.gz"
+remote_uri = node[:papertrail][:remote_uri]
 
 remote_file "/tmp/#{filename}" do
   source "#{remote_uri}"
+  retries 3
 end
 
 script "install_remote_syslog" do
