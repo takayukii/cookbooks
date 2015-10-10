@@ -1,12 +1,12 @@
 node[:opsworks][:layers].each do |layer|
-  Chef::Log.debug("-- #{layer} --")
+  Chef::Log.error("-- #{layer} --")
   bash "test" do
     code <<-EOC
 echo '#{layer}' >> /layer.txt
 EOC
   end
-  layer[:instances].each do |instancehostname|
-    Chef::Log.debug("-- #{instancehostname} --")
+  node[:opsworks][:layers]["#{layer}"][:instances].each do |instancehostname|
+    Chef::Log.error("-- #{instancehostname} --")
     bash "test" do
       code <<-EOC
 echo '#{instancehostname}' >> /instance.txt
