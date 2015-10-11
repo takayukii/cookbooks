@@ -10,8 +10,8 @@ server {
 
     listen <%= node["nginx"]["economy_node_proxy"]["https_port"] %> default ssl;
     ssl on;
-    ssl_certificate      /etc/nginx/ssl/cert.crt;
-    ssl_certificate_key  /etc/nginx/ssl/cert.key;
+    ssl_certificate      <%= node["nginx"]["economy_node_proxy"]["crt_path"] %>;
+    ssl_certificate_key  <%= node["nginx"]["economy_node_proxy"]["key_path"] %>;
 
     location / {
         proxy_pass http://127.0.0.1:<%= node["nginx"]["economy_node_proxy"]["node_port"] %>/;
