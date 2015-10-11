@@ -47,7 +47,7 @@ template "economy_node_proxy.conf" do
   notifies :reload, "service[nginx]"
 end
 
-phpmyadmin_name_is_specified = node["nginx"]["node_proxy"]["phpmyadmin_name"] != ""
+phpmyadmin_name_is_specified = node["nginx"]["economy_node_proxy"]["phpmyadmin_name"] != ""
 include_recipe "phpmyadmin::nginx" if phpmyadmin_name_is_specified
 
 service "nginx" do
