@@ -44,6 +44,12 @@ Attributes
     <td><tt>3000</tt></td>
   </tr>
   <tr>
+    <td><tt>["nginx"]["node_proxy"]["node_port"]</tt></td>
+    <td>数値</td>
+    <td>EC2でNode.jsが起動するポート</td>
+    <td><tt>80</tt></td>
+  </tr>
+  <tr>
     <td><tt>["nginx"]["node_proxy"]["phpmyadmin_name"]</tt></td>
     <td>文字列</td>
     <td>phpMyAdminのパス（URL） e.g. phpmyadminの場合 /phpmyadmin でアクセスする</td>
